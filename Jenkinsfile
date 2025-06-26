@@ -10,15 +10,14 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                // Use virtualenv optionally if needed
-                sh 'python3 -m pip install --upgrade pip'
-                sh 'pip3 install -r requirements.txt'
+                bat 'python -m pip install --upgrade pip'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Run App') {
             steps {
-                sh 'python3 app.py &'
+                bat 'python app.py'
             }
         }
     }
